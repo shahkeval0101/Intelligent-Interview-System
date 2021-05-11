@@ -1,0 +1,21 @@
+make a file contains questions to be asked
+db to authenticate students
+capture video pass it to all functions
+draw conclusions from video
+
+
+threshhold value must be set to what
+patch harmless error in eye tracker- e:/Amit/projects/be intellligent interview/components/video/eye_tracker.py:47: RuntimeWarning: divide by zero encountered in long_scalars
+  y_ratio = (cy - end_points[1])/(end_points[3] - cy)
+
+RUN THIS FOR SOME TIME
+cant run mouth dist during speaking task 
+
+
+RUN THIS THROUGHOUT
+person phone throughout
+head pose
+eye tracker
+
+
+what are we doing 

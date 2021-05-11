@@ -1,0 +1,10 @@
+Student was not facing the interviewer for eye tracker 4.0 % of time
+Spoofed frames 185.0 % of time
+Student was NOT facing the interviewer for head pose 81.0 % of time
+Pronunciation_posteriori_probability_score_percentage 6.994 %
+balance 0.2 (speaking duration)/(original duration)
+Gender and emotion of the interviee is a female, mood of speech: Showing no emotion, normal
+accuracy of the interviee is 0 %
+technical analysis of the interviee is [1.5] marks out of 5
+Technical Mcq correctly answerd:-0
+Student was not using phone 

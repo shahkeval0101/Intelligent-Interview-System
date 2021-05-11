@@ -1,0 +1,25 @@
+.venv/
+original files/
+.vscode/
+.idea/
+tasks.txt
+program/components/video/models/yolov3.weights
+output/
+program/data.txt
+student_interview_data/kevalshah90909@gmail
+program/gui/student_interview_data
+.my_notes.txt
+
+
+program/components/audio/__pycache__/
+program/components/text/src/__pycache__/
+program/components/video/Emotion_detection/src/__pycache__/
+program/components/video/__pycache__/
+program/components/video/__pycache__/
+program/gui/__pycache__/
+program/gui/helper/__pycache__/
+program/components/video/Emotion_detection/src/__pycache__/
+program/components/video/Emotion_detection/src/data/test/
+program/components/video/Emotion_detection/src/data/train/
+*.pyc
+*.pyo

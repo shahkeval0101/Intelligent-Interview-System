@@ -1,0 +1,2 @@
+https://www.pythontutorial.net/tkinter/tkinter-after/
+to get nice timer code

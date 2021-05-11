@@ -1,0 +1,14 @@
+{
+  "1": {
+    "text": "Tell me about yourself?",
+    "time": 20
+  },
+  "2": {
+    "text": "What are the four pillars of OOPS and Explain them?",
+    "time": 20
+  },
+  "3": {
+    "text": "What are your strengths and weaknesses ?",
+    "time": 20
+  }
+}
