@@ -1,0 +1,37 @@
+{
+  "question": [
+    "Q1.Which design patterns benefit from the multiple inheritances?",
+    "Q2. Which of these following members are not accessed by using direct member access operator??",
+    "Q3. Which of the following can be overloaded?",
+    "Q4. How many specifiers are present in access specifiers in class"
+  ],
+  "answer": [
+    1,
+    4,
+    3,
+    4
+  ],
+  "options": [
+
+    ["Adapter and observer pattern",
+      "Code pattern",
+      "Glue pattern",
+      "None of the mentioned"
+    ],
+    [" Public",
+      "Private",
+      "Protected",
+      "Both B & C"
+    ],
+    ["Object",
+      "Operators",
+      "Both A & B",
+      " None of the above"
+    ],
+    ["2",
+      "1",
+      "4",
+      "3"
+    ]
+  ]
+}

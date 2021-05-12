@@ -1,0 +1,17 @@
+flow 
+
+run combine.py
+
+startpage -> login -> greeting -> questions -> answers -> end
+
+# every file has two button - prev and next
+# so import the prev and next class only
+
+# after creating new page add it in combine.py tuple too
+
+time_manager.py questions.txt and students.txt are same files for gui and non gui code. 
+however they lie at different locations
+make sure if u change in one of them change the other too
+
+todo:
+can we have widgets appearing one after another after a set time interval
