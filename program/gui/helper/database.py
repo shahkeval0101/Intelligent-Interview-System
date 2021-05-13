@@ -2,9 +2,10 @@ import sqlite3 as sql
 import os
 
 local_path = os.path.realpath(__file__)
-parent_path = os.path.dirname(os.path.realpath(__file__))
+parent_path = os.path.dirname(local_path) # reach helper folder
+parent_path = os.path.dirname(parent_path) # reach gui folder
 # print(local_path)
-print(parent_path)
+print("database parent path",parent_path)
 filename = os.path.join(str(parent_path),"resources", "data.db")
 print(filename)
 

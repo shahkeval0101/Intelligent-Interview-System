@@ -1,0 +1,8 @@
+emotion - grayscale img
+eye tracker -  grayscale, 
+    shows window while processing, 
+    fix the values for thresholding
+    dont write text on image using cv2.puttext
+
+face spoofing - requires color img,
+    shows window with text

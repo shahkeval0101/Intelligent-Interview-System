@@ -19,14 +19,7 @@ def mouth_distance_f(filename):
         d_inner = [0]*3
         font = cv2.FONT_HERSHEY_SIMPLEX 
 
-        #local_path = os.getcwd()
-        #parent_path = os.path.dirname(local_path)
-        #parent_path=os.path.dirname(parent_path)
-        #print(local_path)
-        #print(parent_path)
-        #filename = os.path.join( str(parent_path) ,"student_interview_data",candidate,"tejas.mp4")
-        #filename = os.path.join( str(local_path) ,"video","1_reading.avi")
-        print(filename)
+     
 
         cap = cv2.VideoCapture(filename)
 
@@ -72,7 +65,7 @@ def mouth_distance_f(filename):
                         if d_inner[i] + 2 <  shape[p2][1] - shape[p1][1]:
                             cnt_inner += 1
                     if cnt_outer > 3 and cnt_inner > 2:
-                        print('Mouth open')
+                        # print('Mouth open')
                         mouth_open+=1
                         cv2.putText(img, 'Mouth open', (30, 30), font,
                                 1, (0, 255, 255), 2)
@@ -82,10 +75,10 @@ def mouth_distance_f(filename):
                     break
             else:
                 break
-        print("total frames",total_frames) 
-        print(mouth_open)  
+        # print("total frames",total_frames) 
+        # print(mouth_open)  
         result_ans=round( (mouth_open*100)/total_frames,2 )
-        print(result_ans)
+        print("Mouth was opened for ", + str(result_ans) + "percent of time" )
         cap.release()
         cv2.destroyAllWindows()
         return result_ans

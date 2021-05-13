@@ -1,3 +1,5 @@
+
+from gui import combine
 import os
 import json
 from components.video import eye_tracker, face_spoofing, head_pose_estimation
@@ -7,9 +9,15 @@ from components.audio import testpro
 from components.audio import audio_main
 from components.video.Emotion_detection.src import emotions
 from collections import Counter
-import result_creation
-import mail_sender_code
-from gui import combine
+from scripts import result_creation
+from scripts import mail_sender_code
+
+# to remove warnings from tensorflow
+import tensorflow as tf
+tf.get_logger().warning('test')
+# WARNING:tensorflow:test
+tf.get_logger().setLevel('ERROR')
+tf.get_logger().warning('test')
 
 
 def evaluate_video(path, result, x):
@@ -21,10 +29,10 @@ def evaluate_video(path, result, x):
         result["mouth_distance"].append(mouth_distance.mouth_distance_f(path))
     result["emotions"].append((list(emotions.emotions_f(path))))
     # result["person_phone"].append((list(person_and_phone.p_and_p_f(path))))
-    print(result)
+    print("\nResult for video evaluation\n",result)
 
 
-def combine_f(candidate="keval909"):
+def combine_f(candidate="boss"):
     global email
     email = candidate
     result = {
@@ -39,13 +47,12 @@ def combine_f(candidate="keval909"):
         "mcq": 0
     }
 
-    os.getcwd()
     dir_path = os.path.dirname(os.path.realpath(__file__))
     # parent_path = os.path.dirname(dir_path)
     print("print", dir_path)
     # print("print", parent_path)
     student_interview_data_path = os.path.join(
-        str(dir_path), "gui", "student_interview_data")
+        str(dir_path), "gui", "student_interview_data",candidate)
     student_interview_data_path = student_interview_data_path + "\\"
     print("student_interview_data_path", student_interview_data_path)
     c = student_interview_data_path

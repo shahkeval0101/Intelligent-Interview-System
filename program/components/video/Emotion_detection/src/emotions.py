@@ -42,30 +42,30 @@ def plot_model_history(model_history):
     plt.show()
 def emotions_f(filename):
     # Define data generators
-    train_dir = 'components/video/Emotion_detection/src/data/train'
-    val_dir = 'components/video/Emotion_detection/src/data/test'
+    # train_dir = 'components/video/Emotion_detection/src/data/train'
+    # val_dir = 'components/video/Emotion_detection/src/data/test'
 
-    num_train = 28709
-    num_val = 7178
-    batch_size = 64
-    num_epoch = 50
+    # num_train = 28709
+    # num_val = 7178
+    # batch_size = 64
+    # num_epoch = 50
 
-    train_datagen = ImageDataGenerator(rescale=1./255)
-    val_datagen = ImageDataGenerator(rescale=1./255)
+    # train_datagen = ImageDataGenerator(rescale=1./255)
+    # val_datagen = ImageDataGenerator(rescale=1./255)
 
-    train_generator = train_datagen.flow_from_directory(
-            train_dir,
-            target_size=(48,48),
-            batch_size=batch_size,
-            color_mode="grayscale",
-            class_mode='categorical')
+    # train_generator = train_datagen.flow_from_directory(
+    #         train_dir,
+    #         target_size=(48,48),
+    #         batch_size=batch_size,
+    #         color_mode="grayscale",
+    #         class_mode='categorical')
 
-    validation_generator = val_datagen.flow_from_directory(
-            val_dir,
-            target_size=(48,48),
-            batch_size=batch_size,
-            color_mode="grayscale",
-            class_mode='categorical')
+    # validation_generator = val_datagen.flow_from_directory(
+    #         val_dir,
+    #         target_size=(48,48),
+    #         batch_size=batch_size,
+    #         color_mode="grayscale",
+    #         class_mode='categorical')
 
     # Create the model
     model = Sequential()
@@ -100,7 +100,9 @@ def emotions_f(filename):
 
     # emotions will be displayed on your face from the webcam feed
     if mode == "display":
-        model.load_weights('components/video/Emotion_detection/src/model.h5')
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        file_dir = os.path.join(dir_path, 'model.h5')
+        # model.load_weights('components/video/Emotion_detection/src/model.h5')
 
         # prevents openCL usage and unnecessary logging messages
         cv2.ocl.setUseOpenCL(False)
@@ -114,7 +116,7 @@ def emotions_f(filename):
         #print(parent_path)
         #filename = os.path.join( str(parent_path) ,"student_interview_data\\tejas@gmail","1_reading.avi")
         #filename = os.path.join( str(local_path) ,"video","1_reading.avi")
-        print(filename)
+        print("File being processed by emotion is - ",filename)
         cap = cv2.VideoCapture(filename)
         #f=open("result.txt","a")
         frames=0
@@ -124,7 +126,7 @@ def emotions_f(filename):
             frames+=1
             if not ret:
                 break
-            facecasc = cv2.CascadeClassifier('components/video/Emotion_detection/src/haarcascade_frontalface_default.xml')
+            facecasc = cv2.CascadeClassifier(os.path.join(dir_path, 'haarcascade_frontalface_default.xml'))
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             faces = facecasc.detectMultiScale(gray,scaleFactor=1.3, minNeighbors=5)
 
@@ -153,3 +155,6 @@ def emotions_f(filename):
     bad_emotions=l_emotion[0]+l_emotion[1]+l_emotion[2]+l_emotion[5]
     print("positive emotions:",good_emotions,"negative emotions:",bad_emotions)
     return int(good_emotions),int(bad_emotions)
+
+
+emotions_f(r"E:\Amit\projects\1 college projects\sem 8\new int sys\Intelligent-Interview-System\program\gui\student_interview_data\1_answering.avi")

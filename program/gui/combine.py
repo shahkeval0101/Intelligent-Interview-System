@@ -64,6 +64,9 @@ class tkinterApp(tk.Tk):
         frame = self.frames[cont]
         frame.tkraise()
 
+    def getCandidateEmail(self):
+        return self.frame[login.Login].getter()
+
 
 # first window frame startpage
 

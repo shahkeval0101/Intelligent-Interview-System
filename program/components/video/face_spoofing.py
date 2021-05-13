@@ -32,15 +32,6 @@ def face_spoofing_f(filename):
 
         clf = joblib.load(os.path.join(os.path.dirname(__file__), 'models/face_spoofing.pkl'))
 
-        #local_path = os.getcwd()
-        #parent_path = os.path.dirname(local_path)
-        #parent_path=os.path.dirname(parent_path)
-        #print(local_path)
-        #print(parent_path)
-        #filename = os.path.join( str(parent_path) ,"student_interview_data",candidate,"tejas.mp4")
-        #filename = os.path.join( str(local_path) ,"video","1_reading.avi")
-        #print(filename)
-
         cap = cv2.VideoCapture(filename)
 
         sample_number = 1
@@ -109,7 +100,7 @@ def face_spoofing_f(filename):
         cap.release()
         cv2.destroyAllWindows()
 
-        print(spoof_frames, total_frames)
+        # print(spoof_frames, total_frames)
         result_ans=round( (spoof_frames*100)/total_frames,2 )
         print("Spoofed frames ",result_ans ,"% of time")
         return result_ans

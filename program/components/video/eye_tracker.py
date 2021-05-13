@@ -143,13 +143,13 @@ def print_eye_pos(img, left, right):
         not_normal_eye_gaze_frame += 1
         text = ''
         if left == 1:
-            print('Looking left')
+            # print('Looking left')
             text = 'Looking left'
         elif left == 2:
-            print('Looking right')
+            # print('Looking right')
             text = 'Looking right'
         elif left == 3:
-            print('Looking up')
+            # print('Looking up')
             text = 'Looking up'
         number = str(not_normal_eye_gaze_frame*100/total_frames)
         font = cv2.FONT_HERSHEY_SIMPLEX 
@@ -164,21 +164,13 @@ def eye_tracker_f(filename):
         left = [36, 37, 38, 39, 40, 41]
         right = [42, 43, 44, 45, 46, 47]
 
-        #local_path = os.getcwd()
-        #parent_path = os.path.dirname(local_path)
-        #parent_path=os.path.dirname(parent_path)
-        #parent_path=os.path.dirname(parent_path)
-        #print(local_path)
-        #print(parent_path)
-        #filename = os.path.join( str(parent_path) ,"student_interview_data",candidate,"tejas.mp4")
-        ##filename = os.path.join( str(local_path) ,"video","1_reading.avi")
-        print(filename)
+        print("File being processed by eye tracker is - ",filename)
 
         cap = cv2.VideoCapture(filename)
         ret, img = cap.read()
         thresh = img.copy()
 
-        cv2.namedWindow('image')
+        cv2.namedWindow('eye tracker')
         kernel = np.ones((9, 9), np.uint8)
 
         def nothing(x):
@@ -226,7 +218,7 @@ def eye_tracker_f(filename):
                 break
         cap.release()
         cv2.destroyAllWindows()
-        print(not_normal_eye_gaze_frame, total_frames)
+        # print(not_normal_eye_gaze_frame, total_frames)
         result_ans=round( (not_normal_eye_gaze_frame*100)/total_frames,2 )
         print("Student was NOT facing the interviewer for ",result_ans,"% of time")
         return result_ans

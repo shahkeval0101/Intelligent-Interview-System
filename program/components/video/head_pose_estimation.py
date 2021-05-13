@@ -129,15 +129,6 @@ def head_pose_estimation_f(filename):
         face_model = get_face_detector()
         landmark_model = get_landmark_model()
 
-        #local_path = os.getcwd()
-        ##parent_path = os.path.dirname(local_path)
-        #parent_path=os.path.dirname(parent_path)
-        #print(local_path)
-        #print(parent_path)
-        #filename = os.path.join( str(local_path) ,"student_interview_data",candidate,"tejas.mp4")
-        #filename = os.path.join( str(local_path) ,"video","1_reading.avi")
-        print(filename)
-
         cap = cv2.VideoCapture(filename)
         ret, img = cap.read()
         size = img.shape
@@ -216,21 +207,21 @@ def head_pose_estimation_f(filename):
                         
                         # print('div by zero error')
                     if ang1 >= 48:
-                        print('Head down')
+                        # print('Head down')
                         cv2.putText(img, 'Head down', (30, 30), font, 2, (255, 255, 128), 3)
                         not_straight_head_frame += 1
                     elif ang1 <= -48:
-                        print('Head up')
+                        # print('Head up')
                         cv2.putText(img, 'Head up', (30, 30), font, 2, (255, 255, 128), 3)
                         not_straight_head_frame += 1
                     
                     if ang2 >= 48:
-                        print('Head right')
+                        # print('Head right')
                         cv2.putText(img, 'Head right', (90, 30), font, 2, (255, 255, 128), 3)
                         not_straight_head_frame += 1
 
                     elif ang2 <= -48:
-                        print('Head left')
+                        # print('Head left')
                         cv2.putText(img, 'Head left', (90, 30), font, 2, (255, 255, 128), 3)
                         not_straight_head_frame += 1
                     
@@ -245,7 +236,7 @@ def head_pose_estimation_f(filename):
         cap.release()
 
 
-        print(not_straight_head_frame, total_frame)
+        # print(not_straight_head_frame, total_frame)
         result_ans=round( (not_straight_head_frame*100)/total_frame,2 )
         print("Student was NOT facing the interviewer for ",result_ans,"% of time")
         return result_ans

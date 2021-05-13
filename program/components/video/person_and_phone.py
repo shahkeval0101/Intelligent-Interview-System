@@ -326,14 +326,7 @@ def p_and_p_f(filename):
     yolo = YoloV3()
     load_darknet_weights(yolo, 'components/video/models/yolov3.weights') 
 
-    #local_path = os.getcwd()
-    #parent_path = os.path.dirname(local_path)
-    #parent_path=os.path.dirname(parent_path)
-    #print(local_path)
-    #print(parent_path)
-    #filename = os.path.join( str(parent_path) ,"student_interview_data",candidate,"tejas.mp4")
-    #filename = os.path.join( str(local_path) ,"video","1_reading.avi")
-    print(filename)
+    # print(filename)
 
     cap = cv2.VideoCapture(filename)
 
@@ -369,7 +362,7 @@ def p_and_p_f(filename):
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    print("Count of mobile phones",mobile_phone)
+    print("Count of mobile phones and person",mobile_phone, count)
     cap.release()
     cv2.destroyAllWindows()
     return mobile_phone,count

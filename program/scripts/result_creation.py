@@ -50,7 +50,7 @@ def result_creation_f(result, email):
     pdf.add_page()
 
     local_path = os.path.realpath(__file__)
-    parent_path = os.path.dirname(os.path.realpath(__file__))
+    parent_path = os.path.dirname(local_path)
     # print(local_path)
     print(parent_path)
     filename = os.path.join(str(parent_path),"resources", "template_header.png")
