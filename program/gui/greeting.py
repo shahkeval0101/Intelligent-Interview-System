@@ -17,19 +17,21 @@ class Greeting(tk.Frame):
 
         tk.Frame.__init__(self, parent)
         label = ttk.Label(self, text="Important Instruction and Guidelines", font=LARGEFONT, background = '#bdbf41', foreground = "#ad2d2d")
-        label.grid(row=0, column=4, padx=10, pady=10)
+        label.grid(row=0, column=1, padx=10, pady=10)
         self.configure(bg = '#bdbf41')
         welcome_speech = """
         •	This is robotic intelligent interviewer 
-        •	The assessment has total 3 Questions followed by MCQ test for which the total time allowed is specified on the screen(15 sec to read questions and specified duration to answer on the question)
-        •	The assessment has two section. Please attempt both the sections before submitting
-        •	For the entire duration of the assessment. Please remain seated in front of your webcam
-        •	IF you get caught practicing any means of malpractice, you would be logged out of the assessment by the evaluator
+        •	The assessment has two section. Please attempt both the sections before submitting.
+        •	The assessment has total 3 Questions followed by MCQ test for which the total time allowed is specified on the screen(15 sec to read questions and specified duration to answer on the question.
+        •	For the entire duration of the assessment. Please remain seated in front of your webcam.
+        •	IF you get caught practicing any means of malpractice, you would be disqualified  by the evaluator.
         •	Ensure proper lightning in the room – Source of light must not be behind you.
-        •	Please sit in a quite with no background noise or people behind you
-        •	Please ensure the wall behind you has a plain background
-        •	You will be judged on the basis of soft skills and hard skills
-        •	You will get your report on your mail
+        •	Please sit in a quite with no background noise or people behind you.
+        •	Please ensure the wall behind you has a plain background.
+        •	You will be judged on the basis of soft skills and hard skills.
+        •	A report will be send to you on your mail.
+        •   All these steps are automated with no human interference.
+        •   By continuing you agree to our terms and conditions.
 
         BEST OF LUCK
 

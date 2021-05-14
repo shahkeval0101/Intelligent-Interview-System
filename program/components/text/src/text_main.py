@@ -59,11 +59,12 @@ def text_analysis(filename):
         
     
     #print("nfafjaljf")
-    local_path = os.getcwd()
+    local_path = os.path.realpath(__file__)
     parent_path = os.path.dirname(local_path)
+    parent_path = os.path.dirname(parent_path)
     #print(local_path)
     #print(parent_path)
-    fp = os.path.join( str(parent_path) ,"program","components","text","data","finaldataset.csv")
+    fp = os.path.join( str(parent_path) ,"data","finaldataset.csv")
     #print(fp)
     
     

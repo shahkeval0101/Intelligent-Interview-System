@@ -96,9 +96,21 @@ class Login(tk.Frame):
                 return
             else:
                 print("Login Passed")
-                self.email.delete(0,'end')
-                password.delete(0,'end')
-                name.delete(0,'end')
+
+                # saving student data in temp file
+                import json 
+                student_data_file = os.path.join(parent_path,"student_interview_data", "temp_student_details.txt")
+                login_info_file = {
+                    "name": name_val.get(),
+                    "email":email_val.get()
+                }
+                with open(student_data_file, 'w', encoding='utf-8') as f:
+                    json.dump(login_info_file, f, ensure_ascii=False, indent=4)
+
+
+                # self.email.delete(0,'end')
+                # password.delete(0,'end')
+                # name.delete(0,'end')
                 controller.show_frame(greeting.Greeting)
 
         # button to show frame 3 with text

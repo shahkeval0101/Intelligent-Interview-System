@@ -22,7 +22,7 @@ def mail_sender_f(email):
     # copy the password generated here
     password = f.readline()
     # put the email of the receiver here
-    receiver = email+'.com'
+    receiver = email
 
     #Setup the MIME
     message = MIMEMultipart()

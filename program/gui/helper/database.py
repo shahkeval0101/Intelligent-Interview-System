@@ -21,9 +21,9 @@ cur = con.cursor()
 
 # """)
 
-# cur.execute("""
-# INSERT INTO "users" VALUES ('boss','1234');
-# """)
+cur.execute("""
+INSERT INTO "users" VALUES ('amit@gmail.com','1234');
+""")
 
 # cur.execute("""
 # INSERT INTO "users" VALUES ('admin','password');

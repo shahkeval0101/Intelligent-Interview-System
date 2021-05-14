@@ -54,7 +54,7 @@ class Questions(tk.Frame):
 
         
         label_instruction = tk.Label(
-            self, text="You  Will Be Proctored For Reading- Don'T Perform Any Suspicious Activity", font=LARGEFONT,background = '#bdbf41')
+            self, text="You  Will Be Proctored For Reading and Answering-  Don'T Perform Any Suspicious Activity", font=LARGEFONT,background = '#bdbf41')
         label_instruction.grid(row=1, column=0, padx=10, pady=10)
 
         # get questions from json file
@@ -83,7 +83,7 @@ class Questions(tk.Frame):
 
             # add time label
             label_timer = tk.Label(question_frame, text="Time allocated for answering this question is: \t " +
-                                   str(self.question_dict[q_id]["time"])+"secs", font=LARGEFONT, background = FRAME_BG_COLOR)
+                                   str(self.question_dict[q_id]["time"])+" secs", font=LARGEFONT, background = FRAME_BG_COLOR)
             label_timer.grid(row=1, column=0, padx=10, pady=10)
 
 ### a label at row 2 is dyanmically generated in next_question() so do not add anything coz it  will be hidden by that label
@@ -103,7 +103,7 @@ class Questions(tk.Frame):
         self.first_question_frame.grid(row=2, column=0, sticky="nsew")
         
         first_label_question = tk.Label(
-            self.first_question_frame, text="Click on the next button when you are ready for test. Reading time for all questions will be " + str(self.question_read_time) + " secs", font=LARGEFONT, background = FRAME_BG_COLOR)
+            self.first_question_frame, text="Click on the next button when you are ready. Reading time for each questions is " + str(self.question_read_time) + " secs", font=LARGEFONT, background = FRAME_BG_COLOR)
         first_label_question.grid(row=0, column=0, padx=10, pady=10,sticky="nsew")
         
         self.first_question_frame.grid_columnconfigure( index = 0, weight=1)
@@ -228,7 +228,7 @@ class Questions(tk.Frame):
 
     def create_student_folder(self):
         # this part should be in login file after login is successful
-        self.student_folder_directory_path = create_directory(self.controller.frames[login.Login].getter())
+        self.student_folder_directory_path = create_directory(self.controller.frames[login.Login].getter().split("@")[0])
         self.this_student_folder_directory_path = this_student_directory_create(
             self.student_folder_directory_path)
         print("this stud folder directory path",

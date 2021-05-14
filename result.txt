@@ -1,0 +1,12 @@
+Mouth was open for 9% of question reading time
+Student was not facing the interviewer for 23% of time
+Spoofed frames were detected for 12% of time
+Student's head pose was away from camera for 25% of time
+Pronunciation posteriori probability score percentage 72%
+Balance (speaking duration)/(original duration) 65
+Gender and emotion of the interviee a Male, mood of speech: speaking passionately
+Spoken Language Proficiency Level (accuracy) 69%
+Technical analysis score is 3.5 marks out of 5
+Technical Mcq correctly answerd are 4 out of 4
+Student was not using phone 
+Number of person(s) in the interview  1

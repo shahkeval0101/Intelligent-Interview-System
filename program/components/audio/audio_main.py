@@ -37,15 +37,16 @@ def run_praat_file(c,filename):
     print("path",path)
     print("sourcerun",sourcerun)
     """
-    local_path = os.getcwd()
+    
     parent_path = os.path.dirname(filename)
     sound = filename
-    sourcerun = c+"\\"+"dataset"+"\\"+"essen"+"\\"+"myspsolution.praat"
+    sourcerun = os.path.join(c,"dataset","essen","myspsolution.praat")
+    print("source run audio", sourcerun)
     #path = os.path.join(str(parent_path),"student_interview_data","kevalshah90909@gmail")
     path=parent_path
-    #print("sound  ",sound)
-    #print("path   ", path)
-    #print("sourcerun", sourcerun)
+    print("sound  ",sound)
+    print("path   ", path)
+    print("sourcerun", sourcerun)
     assert os.path.isfile(sound), "Wrong path to audio file"
     assert os.path.isfile(sourcerun), "Wrong path to praat script"
     assert os.path.isdir(path), "Wrong path to audio files"

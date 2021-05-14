@@ -170,7 +170,7 @@ class Quiz(tk.Frame):
             #result = f"Score: {score}%"
 
             # Shows a message box to display the result
-            mb.showinfo("Result", "{}\n{}\n{}".format(
+            mb.showinfo("Result", "\nPercentage score :{}\nCorrect{}\nWrong{}".format(
                 score, self.correct, wrong_count))
 
         # This method checks the Answer after we click on Next.

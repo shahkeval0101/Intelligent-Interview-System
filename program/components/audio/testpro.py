@@ -4,7 +4,7 @@ import os
 
 def speech_analysis(filename):
     #print("filename", filename)
-    local_path = os.getcwd()
+    local_path = os.path.realpath(__file__)
     parent_path = os.path.dirname(local_path)
     #print("local_path     ",local_path)
     #p = os.path.join( str(local_path) ,"audio_wav1")
@@ -17,7 +17,7 @@ def speech_analysis(filename):
     #p : path to dataset folder
     #m : path to file
     #m, p
-    c = os.path.join(str(parent_path), "program", "components", "audio", "myprosody")
+    c = os.path.join(str(parent_path),  "myprosody")
     #print("c         ",c)
     #mysp.mysptotal(c, filename)
     Gend_value = mysp.myspgend(c,filename)
@@ -44,6 +44,6 @@ def speech_analysis(filename):
     print(acc_value, "% accuracy in voice")
     return Gend_value, bal_value, pronoun_value, acc_value
     
-#filename = r"C:\Users\keval\OneDrive\Desktop\Intelligent interview System\interviewer-system\student_interview_data\kevalshah90909@gmail\audio_wav1.wav"
-#speech_analysis(filename)
+# filename = r"C:\Users\Amit\Downloads\male.wav"
+# speech_analysis(filename)
     
