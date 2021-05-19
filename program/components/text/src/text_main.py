@@ -55,7 +55,7 @@ def text_analysis(filename):
     """
     #print("dfaadaa")
     text = speech_recognition(filename)
-    #print(text)
+    print("Text detected by speech to text is is",text)
         
     
     #print("nfafjaljf")

@@ -102,7 +102,7 @@ def face_spoofing_f(filename):
 
         # print(spoof_frames, total_frames)
         result_ans=round( (spoof_frames*100)/total_frames,2 )
-        print("Spoofed frames ",result_ans ,"% of time")
+        print("\nSpoofed frames ",result_ans ,"% of time")
         return result_ans
     except Exception as e:
         print(str(e))

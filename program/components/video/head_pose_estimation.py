@@ -238,7 +238,7 @@ def head_pose_estimation_f(filename):
 
         # print(not_straight_head_frame, total_frame)
         result_ans=round( (not_straight_head_frame*100)/total_frame,2 )
-        print("Student was NOT facing the interviewer for ",result_ans,"% of time")
+        print("\nStudent was NOT facing the interviewer for ",result_ans,"% of time")
         return result_ans
     except Exception as e:
         print(str(e))

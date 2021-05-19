@@ -41,7 +41,7 @@ def run_praat_file(c,filename):
     parent_path = os.path.dirname(filename)
     sound = filename
     sourcerun = os.path.join(c,"dataset","essen","myspsolution.praat")
-    print("source run audio", sourcerun)
+    print("\nsource run audio", sourcerun)
     #path = os.path.join(str(parent_path),"student_interview_data","kevalshah90909@gmail")
     path=parent_path
     print("sound  ",sound)
@@ -61,11 +61,14 @@ def run_praat_file(c,filename):
         # This will print the info from the textgrid object, and objects[1]
         # is a parselmouth.Data object with a TextGrid inside
         z1 = str(objects[1])
+        print("\nz1 from audio ",z1)
         z2 = z1.strip().split()
+        print("z2",z2)
         return z2
     except:
         z3 = 0
         print("Try again the sound of the audio was not clear")
+        
 
 def myspsyl(c, filename):
     """
@@ -136,7 +139,7 @@ def myspbala(c, filename):
     """
     z2 = run_praat_file(c, filename)
     print(z2[3])
-    z3 = int(z2[3])  # will be the integer number 10
+    # z3 = int(z2[3])  # will be the integer number 10
     z4 = float(z2[6])  # will be the floating point number 8.3
     #print("balance=", z4, "# ratio (speaking duration)/(original duration)")
     return z4

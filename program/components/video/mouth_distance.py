@@ -78,7 +78,7 @@ def mouth_distance_f(filename):
         # print("total frames",total_frames) 
         # print(mouth_open)  
         result_ans=round( (mouth_open*100)/total_frames,2 )
-        print("Mouth was opened for ", + str(result_ans) + "percent of time" )
+        print("\nMouth was opened for ", + str(result_ans) + "percent of time" )
         cap.release()
         cv2.destroyAllWindows()
         return result_ans

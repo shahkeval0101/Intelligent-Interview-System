@@ -220,7 +220,7 @@ def eye_tracker_f(filename):
         cv2.destroyAllWindows()
         # print(not_normal_eye_gaze_frame, total_frames)
         result_ans=round( (not_normal_eye_gaze_frame*100)/total_frames,2 )
-        print("Student was NOT facing the interviewer for ",result_ans,"% of time")
+        print("\nStudent was NOT facing the interviewer for ",result_ans,"% of time")
         return result_ans
     except Exception as e:
         print(str(e))

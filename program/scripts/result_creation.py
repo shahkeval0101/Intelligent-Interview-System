@@ -19,19 +19,19 @@ def result_creation_f(result, email):
         str(result["head_pose"])+"% of time" + "\n"
     f.write(string)
     string = "Pronunciation posteriori probability score percentage " + \
-        str(result["audio"][2][0]) + "%" + "\n"
+        str(result["audio"][2]) + "%" + "\n"
     f.write(string)
     string = "Balance (speaking duration)/(original duration) "+ \
-        str(result["audio"][1][0]) +"\n"
+        str(result["audio"][1]) +"\n"
     f.write(string)
     string = "Gender and emotion of the interviee " + \
-        str(result["audio"][0][0]) + "\n"
+        str(result["audio"][0]) + "\n"
     f.write(string)
     string = "Spoken Language Proficiency Level (accuracy) " + \
-        str(result["audio"][3][0]) + "%" + "\n"
+        str(result["audio"][3]) + "%" + "\n"
     f.write(string)
     string = "Technical analysis score is " + \
-        str(result["text"]) + " marks out of 5" + "\n"
+        str(result["text"][0]) + " marks out of 5" + "\n"
     f.write(string)
     string = "Technical Mcq correctly answerd are "+str(result["mcq"])+" out of 4\n"
     f.write(string)
@@ -103,4 +103,6 @@ def result_creation_f(result, email):
 #         "person_phone": ["not using",1],
 #         "mcq": 4
 #     }
-# result_creation_f(avg_result,"amit")
+
+avg_result = {'audio': ['a female, mood of speech: Reading', 0.425, 0.0, 0], 'mouth_distance': 0, 'head_pose': 5.0, 'person_phone': ['not using', 0], 'emotions': [17, 16], 'eye_tracker': 85.0, 'text': [2.5], 'face_spoofing': 14.0, 'mcq': 0}
+result_creation_f(avg_result,"tejas")

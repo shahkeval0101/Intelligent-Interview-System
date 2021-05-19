@@ -324,15 +324,29 @@ def weights_download(out='models/yolov3.weights'):
 # weights_download() # to download weights
 def p_and_p_f(filename):
     yolo = YoloV3()
-    load_darknet_weights(yolo, 'components/video/models/yolov3.weights') 
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    file_dir = os.path.join(dir_path, 'models')
+    file_path = os.path.join(file_dir, "yolov3.weights")
+
+    load_darknet_weights(yolo, file_path) 
 
     # print(filename)
 
     cap = cv2.VideoCapture(filename)
 
     frames = 0
+
     mobile_phone = 0
-    while(True):
+    person_count = 0
+
+    persons_detected = False
+    phones_detected = False
+
+
+
+    while(not persons_detected or not phones_detected):
+
         frames += 1
         ret, image = cap.read()
         if ret == False:
@@ -342,28 +356,46 @@ def p_and_p_f(filename):
         img = img.astype(np.float32)
         img = np.expand_dims(img, 0)
         img = img / 255
-        class_names = [c.strip() for c in open("components/video/models/classes.TXT").readlines()]
+        file_path = os.path.join(file_dir, "classes.TXT")
+        class_names = [c.strip() for c in open(file_path).readlines()]
         boxes, scores, classes, nums = yolo(img)
-        count=0
-        for i in range(nums[0]):
-            if int(classes[0][i] == 0):
-                count +=1
-            if int(classes[0][i] == 67):
-                print('Mobile Phone detected')
-                mobile_phone+=1
-        if count == 0:
-            print('No person detected')
-        elif count > 1: 
-            print('More than one person detected')
-            
-        image = draw_outputs(image, (boxes, scores, classes, nums), class_names)
 
-        cv2.imshow('Prediction', image)
+        image = draw_outputs(image, (boxes, scores, classes, nums), class_names)
+        
+        for i in range(nums[0]): 
+
+            if persons_detected == False:   
+                if int(classes[0][i] == 0):
+                    person_count +=1
+                if person_count > 1:
+                    print("persons detected",person_count)
+                    persons_detected = True
+                    # print('Person detected')
+                    cv2.imwrite(os.path.join(file_dir,"person-evidence.jpg"), image)
+            
+            if phones_detected == False:
+                if int(classes[0][i] == 67):
+                    print('Mobile Phone detected')
+                    mobile_phone+=1
+                if mobile_phone > 0 :
+                    phones_detected = True
+                    cv2.imwrite(os.path.join(file_dir,"phone-evidence.jpg"), image)
+
+        # if person_count == 0:
+        #     print('No person detected')
+        # elif person_count > 1: 
+        #     print('More than one person detected')
+            
+
+
+
+        cv2.imshow('Person and phone', image)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    print("Count of mobile phones and person",mobile_phone, count)
+    print("Detection of mobile phones and person",phones_detected, persons_detected)
     cap.release()
     cv2.destroyAllWindows()
-    return mobile_phone,count
-#p_and_p_f()
+
+    return phones_detected, persons_detected
+p_and_p_f(r"E:\Amit\projects\1 college projects\sem 8\new int sys\Intelligent-Interview-System\program\gui\student_interview_data\amit\sample3.avi")
