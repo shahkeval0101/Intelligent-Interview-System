@@ -3,9 +3,11 @@ import os
 import json
 from components.video import eye_tracker, face_spoofing, head_pose_estimation
 from components.video import mouth_distance
+# person and phone detection consumes a lot of time thus commented
 # from components.video import  person_and_phone
 from components.text.src import text_main
-from components.audio import testpro
+# prosidy analysis requires a complete silent environment thus commented
+# from components.audio import testpro
 from components.audio import audio_main
 from components.video.Emotion_detection.src import emotions
 from collections import Counter
@@ -68,7 +70,7 @@ def combine_f():
         "emotions": [],
         "text": [],
         "audio": [[], [], [], []],
-        "person_phone": {"phone":[True], "person":[False]},#first will store instances of  phone, next of person
+        "person_phone": {"phone":[False], "person":[False]},#first will store instances of  phone, next of person
         "mcq": 0
     }
 
@@ -88,13 +90,13 @@ def combine_f():
         print("reading_file",reading_file)
         print("answering_file",answering_file)
 
-        # evaluate_video(reading_file+".avi" , result, 0)
-        # evaluate_video(answering_file+".avi", result, 1)
-        Gend_value, bal_value, pronoun_value, acc_value = testpro.speech_analysis(answering_file+".wav")
-        result["audio"][0].append(Gend_value)
-        result["audio"][1].append(bal_value)
-        result["audio"][2].append(pronoun_value)
-        result["audio"][3].append(acc_value)
+        evaluate_video(reading_file+".avi" , result, 0)
+        evaluate_video(answering_file+".avi", result, 1)
+        # Gend_value, bal_value, pronoun_value, acc_value = testpro.speech_analysis(answering_file+".wav")
+        # result["audio"][0].append(Gend_value)
+        # result["audio"][1].append(bal_value)
+        # result["audio"][2].append(pronoun_value)
+        # result["audio"][3].append(acc_value)
         if(q_id in l_questions_text):
             result["text"].append(text_main.text_analysis(answering_file+".wav"))
 
@@ -158,25 +160,25 @@ def combine_f():
                 negative_emotions_avg = j[1]+negative_emotions_avg
                 emtions_count += 1
 
-        elif(i == "person_phone"):
-                phone_detected = any(result["person_and_phone"]["phone"])
-                person_detected = any(result["person_and_phone"]["person"])
+        # elif(i == "person_phone"):
+        #         phone_detected = any(result["person_phone"]["phone"])
+        #         person_detected = any(result["person_phone"]["person"])
        
-        elif(i == "audio"):
-            counter1 = Counter(result[i][0])
-            audio_gender = counter1.most_common(1)[0][0]
-            for j in result[i][1]:
-                if(j != -1):
-                    balance_avg = j+balance_avg
-                    balacne_count += 1
-            for j in result[i][2]:
-                if(j != -1):
-                    pron_avg = j+pron_avg
-                    pron_count += 1
-            for j in result[i][3]:
-                if(j != -1):
-                    accuracy_avg = j+accuracy_avg
-                    accuracy_count += 1
+        # elif(i == "audio"):
+        #     counter1 = Counter(result[i][0])
+        #     audio_gender = counter1.most_common(1)[0][0]
+        #     for j in result[i][1]:
+        #         if(j != -1):
+        #             balance_avg = j+balance_avg
+        #             balacne_count += 1
+        #     for j in result[i][2]:
+        #         if(j != -1):
+        #             pron_avg = j+pron_avg
+        #             pron_count += 1
+        #     for j in result[i][3]:
+        #         if(j != -1):
+        #             accuracy_avg = j+accuracy_avg
+        #             accuracy_count += 1
 
     avg_result["eye_tracker"] = eye_tracker_avg//eye_tracker_count
     avg_result["face_spoofing"] = face_spoofing_avg//face_spoofing_count
@@ -184,13 +186,13 @@ def combine_f():
     avg_result["mouth_distance"] = mouth_distance_avg//mouth_distance_count
     avg_result["emotions"].append(postive_emotions_avg//emtions_count)
     avg_result["emotions"].append(negative_emotions_avg//emtions_count)
-    avg_result["audio"][0] = audio_gender
-    avg_result["audio"][1] = balance_avg/balacne_count
-    avg_result["audio"][2] = pron_avg/pron_count
-    avg_result["audio"][3] = accuracy_avg//accuracy_count
+    # avg_result["audio"][0] = audio_gender
+    # avg_result["audio"][1] = balance_avg/balacne_count
+    # avg_result["audio"][2] = pron_avg/pron_count
+    # avg_result["audio"][3] = accuracy_avg//accuracy_count
     avg_result["text"] = result["text"]
-    avg_result["person_phone"]["phone"] = phone_detected
-    avg_result["person_phone"]["person"] = person_detected
+    # avg_result["person_phone"]["phone"] = phone_detected
+    # avg_result["person_phone"]["person"] = person_detected
     avg_result["mcq"] = result["mcq"]
     print(avg_result)
     result_creation.result_creation_f(avg_result, email )

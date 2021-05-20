@@ -35,11 +35,11 @@ def result_creation_f(result, email):
     f.write(string)
     string = "Technical Mcq correctly answerd are "+str(result["mcq"])+" out of 4\n"
     f.write(string)
-    string = "Student was "+str(result["person_phone"][0]) + " phone \n"
+    string = "Did the student used phone "+str(result["person_phone"]["phone"]) + "\n"
     f.write(string)
     # if(result["person_phone"][1] > 1):
-    string = "Number of person(s) in the interview  " + \
-        str(result["person_phone"][1])+"\n"
+    string = "Were more than 1 person detected in room " + \
+        str(result["person_phone"]["person"])+"\n"
     f.write(string)
 
 
@@ -104,5 +104,5 @@ def result_creation_f(result, email):
 #         "mcq": 4
 #     }
 
-avg_result = {'audio': ['a female, mood of speech: Reading', 0.425, 0.0, 0], 'mouth_distance': 0, 'head_pose': 5.0, 'person_phone': ['not using', 0], 'emotions': [17, 16], 'eye_tracker': 85.0, 'text': [2.5], 'face_spoofing': 14.0, 'mcq': 0}
+avg_result =  {'head_pose': 5.0, 'person_phone': {'person': [], 'phone': []}, 'eye_tracker': 85.0, 'audio': [[], [], [], []], 'mcq': 0, 'text': [2.5], 'mouth_distance': 0, 'emotions': [6, 27], 'face_spoofing': 14.0}  
 result_creation_f(avg_result,"tejas")

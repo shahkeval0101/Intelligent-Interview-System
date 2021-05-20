@@ -1,12 +1,12 @@
 Mouth was open for 0% of question reading time
 Student was not facing the interviewer for 85.0% of time
-Spoofed frames were detected for 14.0% of time
-Student's head pose was away from camera for 5.0% of time
-Pronunciation posteriori probability score percentage 0.0%
-Balance (speaking duration)/(original duration) 0.425
-Gender and emotion of the interviee a female, mood of speech: Reading
-Spoken Language Proficiency Level (accuracy) 0%
-Technical analysis score is 2.5 marks out of 5
+Spoofed frames were detected for 0.0% of time
+Student's head pose was away from camera for 11.0% of time
+Pronunciation posteriori probability score percentage []%
+Balance (speaking duration)/(original duration) []
+Gender and emotion of the interviee []
+Spoken Language Proficiency Level (accuracy) []%
+Technical analysis score is 1.5 marks out of 5
 Technical Mcq correctly answerd are 0 out of 4
-Student was not using phone 
-Number of person(s) in the interview  0
+Did the student used phone []
+Were more than 1 person detected in room []

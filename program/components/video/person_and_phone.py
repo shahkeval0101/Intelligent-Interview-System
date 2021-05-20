@@ -371,7 +371,7 @@ def p_and_p_f(filename):
                     print("persons detected",person_count)
                     persons_detected = True
                     # print('Person detected')
-                    cv2.imwrite(os.path.join(file_dir,"person-evidence.jpg"), image)
+                    # cv2.imwrite(os.path.join(file_dir,"person-evidence.jpg"), image)
             
             if phones_detected == False:
                 if int(classes[0][i] == 67):
@@ -379,7 +379,7 @@ def p_and_p_f(filename):
                     mobile_phone+=1
                 if mobile_phone > 0 :
                     phones_detected = True
-                    cv2.imwrite(os.path.join(file_dir,"phone-evidence.jpg"), image)
+                    # cv2.imwrite(os.path.join(file_dir,"phone-evidence.jpg"), image)
 
         # if person_count == 0:
         #     print('No person detected')
